@@ -1,57 +1,23 @@
 # do-it-break
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+It do!
 
-## Prerequisites
+(This is a minimal reproduction of https://github.com/babel/ember-cli-babel/issues/419)
 
-You will need the following things properly installed on your computer.
+Clone and `ember s`; as soon as it hits tracked-built-ins, you'll see this output:
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
-* [Yarn](https://yarnpkg.com/)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+```
+Build Error (broccoli-persistent-filter:Babel > [Babel: tracked-built-ins]) in tracked-built-ins/-private/object.js
 
-## Installation
+/Users/ckrycho/dev/test/do-it-break/tracked-built-ins/-private/object.js: Class private methods are not enabled.
+  65 |
+  66 |   // @private
+> 67 |   #readStorageFor(key) {
+     |   ^
+  68 |     let storage = this.#storages.get(key);
+  69 |
+  70 |     if (storage === undefined) {
 
-* `git clone <repository-url>` this repository
-* `cd do-it-break`
-* `yarn install`
 
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `yarn lint`
-* `yarn lint:fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+Stack Trace and Error Report: /var/folders/bw/k3jm2wf96p390m_k4jmhwm5c001321/T/error.dump.d6809848bc20bdeb895ea95b03bfbf87.log
+```
